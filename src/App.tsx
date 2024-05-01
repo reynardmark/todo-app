@@ -1,13 +1,20 @@
-import { useState } from "react";
-import { Button } from "@mui/material";
+import TodoPage from "./pages/TodoPage";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#6200EE",
+        dark: "3700B3",
+      },
+    },
+  });
 
   return (
-    <>
-      <Button variant="contained">Hello world</Button>
-    </>
+    <ThemeProvider theme={theme}>
+      <TodoPage />
+    </ThemeProvider>
   );
 }
 
