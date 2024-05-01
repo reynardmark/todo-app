@@ -1,26 +1,24 @@
-import { Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { List, ListItem, ListItemText, Typography } from "@mui/material";
+import Task from "../model/Task";
 
-type TaskListProps = {
+interface TaskListProps {
   listTitle: string;
-};
+  tasks: Task[];
+}
 
-export default function TaskList({ listTitle }: TaskListProps) {
+export default function TaskList({ listTitle, tasks }: TaskListProps) {
   return (
-    <Grid2 container p={2}>
-      <Grid item>
-        <Typography component="h2" variant="h4" sx={{ fontWeight: 700 }}>
-          {listTitle}
-        </Typography>
-        <List>
-          <ListItem>
-            <ListItemText>Do chores</ListItemText>
+    <>
+      <Typography component="h2" variant="h4" sx={{ fontWeight: 700 }}>
+        {listTitle}
+      </Typography>
+      <List sx={{ overflow: "auto", height: "90%" }}>
+        {tasks.map((task) => (
+          <ListItem key={task.id}>
+            <ListItemText>{task.name}</ListItemText>
           </ListItem>
-          <ListItem>
-            <ListItemText>Study Javascript</ListItemText>
-          </ListItem>
-        </List>
-      </Grid>
-    </Grid2>
+        ))}
+      </List>
+    </>
   );
 }

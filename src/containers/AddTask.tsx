@@ -1,14 +1,32 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import AddTaskField from "../components/AddTaskField";
+import Task from "../model/Task";
 
-export default function AddTask() {
+interface AddTaskProps {
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+}
+
+export default function AddTask({ setTasks, tasks }: AddTaskProps) {
   const [input, setInput] = useState("");
+  const [isInvalid, setIsInvalid] = useState(false);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    //do something, add task to the array.
-    //store input
+    setIsInvalid(false);
+
+    if (input === "") {
+      setIsInvalid(true);
+      return;
+    }
+
+    setTasks([
+      ...tasks,
+      { id: tasks.length + 1, name: input, completed: false },
+    ]);
+
+    setInput("");
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +35,11 @@ export default function AddTask() {
 
   return (
     <>
-      <AddTaskField onSubmit={handleSubmit} onChange={handleChange} />
+      <AddTaskField
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        isInvalid={isInvalid}
+      />
     </>
   );
 }
