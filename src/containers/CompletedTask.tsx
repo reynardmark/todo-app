@@ -1,4 +1,4 @@
-import TaskList from "../components/TaskList";
+import TaskList from "./TaskList";
 import Task from "../model/Task";
 import { useState, useEffect } from "react";
 

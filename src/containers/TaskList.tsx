@@ -8,6 +8,7 @@ import {
 import Task from "../model/Task";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import EditIcon from "@mui/icons-material/Edit";
 
 interface TaskListProps {
   listTitle: string;
@@ -23,6 +24,8 @@ export default function TaskList({
   handleComplete,
   handleDelete,
 }: TaskListProps) {
+  //TODO: Refactor delete and add edit task feature
+
   return (
     <>
       <Typography component="h2" variant="h4" sx={{ fontWeight: 700 }}>
@@ -43,14 +46,23 @@ export default function TaskList({
                         handleComplete(task.id);
                       }
                     }}
+                    sx={{ color: "green" }}
                   >
                     <CheckCircleIcon />
                   </IconButton>
                 )}
                 <IconButton
                   edge="end"
+                  aria-label="Edit task"
+                  sx={{ color: "blue" }}
+                >
+                  <EditIcon />
+                </IconButton>
+                <IconButton
+                  edge="end"
                   aria-label="Delete task"
                   onClick={() => handleDelete(task.id)}
+                  sx={{ color: "red" }}
                 >
                   <DeleteIcon />
                 </IconButton>
