@@ -47,9 +47,9 @@ export default function TodoPage() {
         >
           <Paper
             elevation={1}
-            sx={{ minWidth: "500px", height: "500px", padding: "12px" }}
+            sx={{ width: "500px", height: "500px", padding: "12px" }}
           >
-            <NotCompletedTask tasks={tasks} />
+            <NotCompletedTask tasks={tasks} setTasks={setTasks} />
           </Paper>
         </Grid2>
 

@@ -21,8 +21,8 @@ export default function AddTask({ setTasks, tasks }: AddTaskProps) {
       return;
     }
 
-    setTasks([
-      ...tasks,
+    setTasks((prevState) => [
+      ...prevState,
       { id: tasks.length + 1, name: input, completed: false },
     ]);
 
@@ -38,6 +38,7 @@ export default function AddTask({ setTasks, tasks }: AddTaskProps) {
       <AddTaskField
         onSubmit={handleSubmit}
         onChange={handleChange}
+        value={input}
         isInvalid={isInvalid}
       />
     </>

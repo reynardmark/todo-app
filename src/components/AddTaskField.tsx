@@ -5,12 +5,14 @@ interface AddTaskFieldProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: SyntheticEvent) => void;
   isInvalid: boolean;
+  value: string;
 }
 
 export default function AddTaskField({
   onChange,
   onSubmit,
   isInvalid,
+  value,
 }: AddTaskFieldProps) {
   return (
     <Box
@@ -29,6 +31,7 @@ export default function AddTaskField({
         variant="standard"
         sx={{ minWidth: "400px" }}
         onChange={onChange}
+        value={value}
         size="medium"
         helperText={isInvalid ? "No blank inputs" : ""}
       />
