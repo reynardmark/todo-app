@@ -13,12 +13,15 @@ interface TaskListProps {
   listTitle: string;
   tasks: Task[];
   handleComplete?: (id: number) => void;
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  handleDelete: (id: number) => void;
 }
 
 export default function TaskList({
   listTitle,
   tasks,
   handleComplete,
+  handleDelete,
 }: TaskListProps) {
   return (
     <>
@@ -44,7 +47,11 @@ export default function TaskList({
                     <CheckCircleIcon />
                   </IconButton>
                 )}
-                <IconButton edge="end" aria-label="Delete task">
+                <IconButton
+                  edge="end"
+                  aria-label="Delete task"
+                  onClick={() => handleDelete(task.id)}
+                >
                   <DeleteIcon />
                 </IconButton>
               </>

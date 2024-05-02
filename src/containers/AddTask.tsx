@@ -23,7 +23,7 @@ export default function AddTask({ setTasks, tasks }: AddTaskProps) {
 
     setTasks((prevState) => [
       ...prevState,
-      { id: tasks.length + 1, name: input, completed: false },
+      { id: new Date().getTime(), name: input, completed: false },
     ]);
 
     setInput("");

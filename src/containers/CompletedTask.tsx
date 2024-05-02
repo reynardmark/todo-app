@@ -1,11 +1,31 @@
 import TaskList from "../components/TaskList";
+import Task from "../model/Task";
+import { useState, useEffect } from "react";
 
-export default function CompletedTask() {
-  //get tasks that are not completed
+interface CompletedTaskProps {
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+}
+
+export default function CompletedTask({ tasks, setTasks }: CompletedTaskProps) {
+  const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
+
+  const handleDelete = (id: number) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  useEffect(() => {
+    setCompletedTasks(tasks.filter((task) => task.completed));
+  }, [tasks]);
 
   return (
     <>
-      <TaskList listTitle="Finished Tasks" />
+      <TaskList
+        listTitle="Finished Tasks"
+        tasks={completedTasks}
+        setTasks={setTasks}
+        handleDelete={handleDelete}
+      />
     </>
   );
 }

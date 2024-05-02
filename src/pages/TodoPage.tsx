@@ -53,17 +53,20 @@ export default function TodoPage() {
           </Paper>
         </Grid2>
 
-        {/* <Grid2
+        <Grid2
           xs={12}
           md={6}
           display="flex"
           justifyContent="center"
           alignItems="center"
         >
-          <Paper elevation={1} sx={{ minWidth: "500px", height: "400px" }}>
-            <CompletedTask />
+          <Paper
+            elevation={1}
+            sx={{ width: "500px", height: "500px", padding: "12px" }}
+          >
+            <CompletedTask tasks={tasks} setTasks={setTasks} />
           </Paper>
-        </Grid2> */}
+        </Grid2>
       </Grid2>
     </Grid2>
   );

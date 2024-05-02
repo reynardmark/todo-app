@@ -12,11 +12,10 @@ export default function NotCompletedTask({
   tasks,
   setTasks,
 }: NotCompletedTaskProps) {
-  //get tasks that are not completed
   const [notCompletedTasks, setNotCompletedTasks] = useState<Task[]>([]);
 
   const handleComplete = (id: number) => {
-    const updatedTasks: Task[] = notCompletedTasks.map((task) => {
+    const updatedTasks: Task[] = tasks.map((task) => {
       if (task.id === id) {
         return { ...task, completed: true };
       }
@@ -24,6 +23,10 @@ export default function NotCompletedTask({
     });
 
     setTasks(updatedTasks);
+  };
+
+  const handleDelete = (id: number) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   useEffect(() => {
@@ -36,6 +39,8 @@ export default function NotCompletedTask({
         listTitle="Unfinished Tasks"
         tasks={notCompletedTasks}
         handleComplete={handleComplete}
+        setTasks={setTasks}
+        handleDelete={handleDelete}
       />
     </>
   );
