@@ -60,6 +60,9 @@ export default function TaskListItem({
 
   return (
     <ListItem
+      sx={{
+        paddingRight: "100px",
+      }}
       secondaryAction={
         <>
           {!task.completed && (
@@ -101,9 +104,10 @@ export default function TaskListItem({
           variant="standard"
           onChange={handleChange}
           onKeyDown={(e) => handleSubmit(e, task.id)}
+          fullWidth
         />
       ) : (
-        <ListItemText>{task.name}</ListItemText>
+        <ListItemText primary={task.name} sx={{ wordWrap: "break-word" }} />
       )}
     </ListItem>
   );
