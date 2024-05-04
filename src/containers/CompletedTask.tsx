@@ -1,7 +1,7 @@
-import TaskList from "./TaskList";
-import Task from "../model/Task";
 import { useState, useEffect } from "react";
 
+import TaskList from "./TaskList";
+import Task from "../model/Task";
 interface CompletedTaskProps {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;

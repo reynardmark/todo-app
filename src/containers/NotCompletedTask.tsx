@@ -1,7 +1,7 @@
-import TaskList from "./TaskList";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import Task from "../model/Task";
-import { useState } from "react";
+import TaskList from "./TaskList";
 
 interface NotCompletedTaskProps {
   tasks: Task[];

@@ -1,6 +1,5 @@
 import { List, Typography } from "@mui/material";
 import Task from "../model/Task";
-
 import TaskListItem from "./TaskListItem";
 
 interface TaskListProps {

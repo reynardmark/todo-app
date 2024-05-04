@@ -1,6 +1,7 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
 import AddTaskField from "../components/AddTaskField";
 import Task from "../model/Task";
+
+import { ChangeEvent, SyntheticEvent, useState } from "react";
 
 interface AddTaskProps {
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
