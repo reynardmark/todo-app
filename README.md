@@ -7,8 +7,8 @@ This application's features are inspired in [this](https://github.com/florinpop1
 # Setup
 
 ```
-$ git clone git@github.com:reynardmark/simple-calculator.git
-$ cd simple-calculator
+$ git clone git@github.com:reynardmark/todo-app.git
+$ cd todo-app
 $ yarn
 ```
 
