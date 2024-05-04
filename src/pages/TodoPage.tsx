@@ -3,11 +3,11 @@ import { Paper, Typography } from "@mui/material";
 import AddTask from "../containers/AddTask";
 import NotCompletedTask from "../containers/NotCompletedTask";
 import CompletedTask from "../containers/CompletedTask";
-import { useState } from "react";
 import Task from "../model/Task";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function TodoPage() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useLocalStorage<Task[]>("store");
 
   return (
     <Grid2 container xs={12}>
@@ -28,7 +28,7 @@ export default function TodoPage() {
         </Typography>
       </Grid2>
       <Grid2 xs={12} display="flex" justifyContent="center" alignItems="center">
-        <AddTask setTasks={setTasks} tasks={tasks} />
+        <AddTask setTasks={setTasks} />
       </Grid2>
 
       <Grid2
