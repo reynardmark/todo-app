@@ -23,6 +23,7 @@ export default function AddTaskField({
       sx={{
         minHeight: "80px",
       }}
+      autoComplete="off"
     >
       <TextField
         error={isInvalid ? true : false}

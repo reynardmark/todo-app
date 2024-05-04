@@ -10,10 +10,6 @@ interface CompletedTaskProps {
 export default function CompletedTask({ tasks, setTasks }: CompletedTaskProps) {
   const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
 
-  const handleDelete = (id: number) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
   useEffect(() => {
     setCompletedTasks(tasks.filter((task) => task.completed));
   }, [tasks]);
@@ -22,9 +18,9 @@ export default function CompletedTask({ tasks, setTasks }: CompletedTaskProps) {
     <>
       <TaskList
         listTitle="Finished Tasks"
-        tasks={completedTasks}
+        filteredTasks={completedTasks}
+        tasks={tasks}
         setTasks={setTasks}
-        handleDelete={handleDelete}
       />
     </>
   );

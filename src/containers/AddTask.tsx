@@ -3,11 +3,10 @@ import AddTaskField from "../components/AddTaskField";
 import Task from "../model/Task";
 
 interface AddTaskProps {
-  tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }
 
-export default function AddTask({ setTasks, tasks }: AddTaskProps) {
+export default function AddTask({ setTasks }: AddTaskProps) {
   const [input, setInput] = useState("");
   const [isInvalid, setIsInvalid] = useState(false);
 
